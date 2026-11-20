@@ -10,6 +10,7 @@ body {
     background-color: #f8f6f2;
     color: #333;
     direction: ltr;
+    overflow-x: hidden;
 }
 
 /* Header */
@@ -51,6 +52,7 @@ header {
 .header-buttons {
     display: flex;
     gap: 15px;
+    align-items: center;
 }
 
 .header-buttons .btn {
@@ -155,8 +157,8 @@ header {
 .product-card img {
     width: 100%;
     height: 430px;
-    object-fit: cover; /* بيخلي كل الصور تملأ المساحة بنفس المقاس بالظبط */
-    object-position: top center; /* بيضمن إن بداية الفستان أو البدلة من فوق متتقصش */
+    object-fit: cover;
+    object-position: top center;
     display: block;
     transition: transform 0.7s ease;
 }
@@ -205,6 +207,10 @@ header {
     transform: scale(1.2);
 }
 
+.actions i.is-favorite {
+    color: #e03131;
+}
+
 .actions button {
     padding: 10px 26px;
     background: linear-gradient(135deg, #d4af37, #b8860b);
@@ -222,7 +228,7 @@ header {
     box-shadow: 0 0 16px rgba(212, 175, 55, 0.65);
     transform: scale(1.04);
 }
-/* ///////////////////////////////////////////////////////////////////// */
+
 /* Auth Pages Layout (Login & Register) */
 .auth-container {
     max-width: 450px;
@@ -314,52 +320,8 @@ header {
 .auth-switch a:hover {
     text-decoration: underline;
 }
-/* //////////////////////////////////////////////// */
-@media (max-width: 768px) {
-  .products-container {
-    grid-template-columns: 1fr;
-    flex-direction: column;
-  }
-}
-/* تظبيط أزرار الهيدر والكروت على شاشات الموبايل */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        padding: 12px 15px;
-    }
 
-    .header-buttons {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        gap: 8px;
-        width: 100%;
-    }
-
-    .header-buttons .btn,
-    .header-buttons button {
-        padding: 7px 11px;
-        font-size: 13px;
-        white-space: nowrap;
-    }
-
-    .actions {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 10px;
-    }
-
-    .actions button {
-        padding: 8px 12px;
-        font-size: 13px;
-    }
-}
-/* ///////////////////////////////////////////// */
-/* أزرار صفحة السلة */
+/* Cart & Favorites Action Buttons */
 .cart-actions {
     display: flex;
     align-items: center;
@@ -403,6 +365,96 @@ header {
     border-color: #996f08;
 }
 
-.actions i.is-favorite {
-    color: #e03131;
+/* Responsive Design for Mobile (<= 768px) */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 15px;
+    }
+
+    .logo-img {
+        width: 42px;
+        height: 42px;
+    }
+
+    .brand-name {
+        font-size: 24px;
+    }
+
+    .header-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .header-buttons .btn,
+    .header-buttons button {
+        padding: 7px 12px;
+        font-size: 13px;
+        white-space: nowrap;
+    }
+
+    .user-greeting {
+        width: 100%;
+        justify-content: center;
+        font-size: 14px !important;
+        margin-top: 2px;
+    }
+
+    .search-section {
+        flex-direction: column;
+        margin: 20px auto;
+        padding: 0 15px;
+        gap: 10px;
+    }
+
+    .search-section select,
+    .search-section input,
+    .search-section button {
+        width: 100%;
+        font-size: 14px;
+        padding: 11px 14px;
+    }
+
+    .products-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 15px;
+        margin-bottom: 40px;
+    }
+
+    .product-card img {
+        height: 310px;
+    }
+
+    .product-info h3 {
+        font-size: 18px;
+    }
+
+    .actions {
+        padding: 12px 18px 18px;
+        justify-content: space-between;
+        gap: 12px;
+    }
+
+    .actions button {
+        flex: 1;
+        padding: 9px 14px;
+        font-size: 14px;
+    }
+
+    .auth-container {
+        margin: 25px 15px;
+        padding: 25px 20px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
 }
